@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+@theme {
+    --color-hoverColor: #42A5F5;
+    --font-family: 'Inter', sans-serif;
+    --color-textColor: #FAFAFA;
+    --color-grayColor: #A1A1AA;
+}

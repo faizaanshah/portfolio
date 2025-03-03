@@ -3,8 +3,9 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "homepage": "https://faizaanshah.github.io/portfolio",
     "author": {
-        "name": "Aimal Khan"
+        "name": "Developer"
     },
     "scripts": {
         "dev": "vite",

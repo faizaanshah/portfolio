@@ -1,0 +1,66 @@
+name: Sync Fork and Create PR
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch: # Allows manual triggering
+
+jobs:
+    sync-and-pr:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Your Fork
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Fetch full history for syncing
+
+            - name: Set Up Git
+              run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+            - name: Clone the Original Repository
+              env:
+                  ACCESS_TOKEN: ${{ secrets.PAT_TOKEN }}
+              run: |
+                  git clone https://$ACCESS_TOKEN@github.com/awaissaddiqui/Faizan_Portfolio.git original_repo
+                  cd original_repo
+                  git checkout main
+                  git pull origin main
+
+            - name: Sync Fork with Original Repo
+              env:
+                  ACCESS_TOKEN: ${{ secrets.PAT_TOKEN }}
+              run: |
+                  cd original_repo
+                  git remote add fork https://github.com/aimalexe/faizan-portfolio.git
+                  git config --global credential.helper 'cache --timeout=120'
+                  git config --global credential.useHttpPath true
+                  echo "machine github.com login aimalexe password $ACCESS_TOKEN" > ~/.git-credentials
+                  git push fork main --force
+
+            - name: Generate Unique Branch Name for PR
+              run: |
+                  BRANCH_NAME="aimalexe/$(date +'%Y-%m-%d-%H%M%S')"
+                  echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+            - name: Create a New Branch and Push to Fork
+              env:
+                  ACCESS_TOKEN: ${{ secrets.PAT_TOKEN }}
+              run: |
+                  cd original_repo
+                  git checkout -b $BRANCH_NAME
+                  git push fork $BRANCH_NAME
+
+            - name: Create Pull Request to Original Repo
+              env:
+                  GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+              run: |
+                  gh pr create \
+                    --repo awaissaddiqui/faizan-portfolio \
+                    --base main \
+                    --head aimalexe:$BRANCH_NAME \
+                    --title "🔄 Auto PR: Sync Fork to Original Repo ($BRANCH_NAME)" \
+                    --body "This PR automatically syncs my forked repository with the latest changes from the original repository. Please review and merge. 🚀"

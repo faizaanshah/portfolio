@@ -41,6 +41,7 @@ The app should now be running at `http://localhost:5173`.
 To manually build the project for production:
 ```sh
 npm run build
+npm run deploy # to deploy
 ```
 
 Then, deploy the `dist/` folder using **GitHub Actions**.

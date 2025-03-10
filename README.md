@@ -42,8 +42,8 @@ This portfolio is designed to be fully customizable, allowing you to update cont
 
 ### 📝 Updating Personal Information
 
-Modify src/components/HeroSection.jsx to update your name, tagline, and profile image.
-Update src/component/WorkExperiance.jsx to add your new work experiance with description.
+Modify `src/components/HeroSection.jsx` to update your name, tagline, and profile image.
+Update `src/component/WorkExperiance.jsx` to add your new work experiance with description.
 
 ### Update Images 
 
@@ -52,27 +52,27 @@ e.g Replace `src/assets/faizan.png` with your own profile image and update the p
 
 ### 🎨 Styling Customization
 
-Tailwind CSS makes it easy to change colors, fonts, and layouts. Modify App.css to adjust theme settings.
+Tailwind CSS makes it easy to change colors, fonts, and layouts. Modify `App.css` to adjust theme settings.
 
 
 ### 🔗 Social Media & Links
 
-Modify src/components/Footer.jsx to update your social media links.
-Update the SEO metadata in public/index.html to reflect your own portfolio.
+Modify `src/components/Footer.jsx` to update your social media links.
+Update the SEO metadata in `public/index.html` to reflect your own portfolio.
 
 ### 🖼️ Adding New Sections
 
-Create a new component in src/components/ and import it into App.jsx to add additional sections like testimonials etc.
+Create a new component in `src/components/` and import it into `App.jsx` to add additional sections like testimonials etc.
 
 
 ### 📦 Building for Production
 - First push your changes to the repository ` main branch`.
 - Run the following command to build the project:
 ```sh
-npm run deploy # to deploy
+npm run deploy # to deploy the app (Faizan Portfolio)
 ```
 
-Then, deploy the `dist/` folder using **GitHub Actions**.
+
 
 
 

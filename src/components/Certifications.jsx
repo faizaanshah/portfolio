@@ -4,12 +4,12 @@ import { FiExternalLink } from "react-icons/fi";
 import { LiaCertificateSolid } from "react-icons/lia";
 const certificationsData = [
   {
-    title: "Amazon EKS Fundamentals",
-    issuer: "Releaseworks Academy",
-    issuedDate: "May 2023",
-    provider: 'AWS',
-    link: "https://www.releaseworksacademy.com/certificates/jclw2ranpl",
-    tags: ["AWS CloudFormation", "Terraform", "Kubernetes", "Amazon EKS"],
+    title: "Certified Kubernetes Administrator (CKA)",
+    issuer: "The Linux Foundation",
+    issuedDate: "Feb 2026",
+    provider: 'CNCF',
+    link: "https://www.credly.com/badges/ff63655b-3b2d-4700-a368-c3a93cfc4880/public_url",
+    tags: ["API objects", "Cloud", "Custom Resource Definitions", "Logging and Troubleshooting", "System Administrator", "Volumes", , "Kubernetes", "Amazon EKS"],
   },
   {
     title: "AWS Cloud Practitioner Essentials (Second Edition)",

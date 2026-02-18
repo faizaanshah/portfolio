@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
     push:
         branches:
-            - main # Runs on push to main
+            - gh-live # Runs on push to main
     workflow_dispatch: # Allows manual triggering
 
 permissions:
